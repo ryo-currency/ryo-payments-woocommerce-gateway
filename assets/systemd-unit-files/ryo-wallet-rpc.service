@@ -1,0 +1,14 @@
+[Unit]
+Description=Ryo Wallet RPC
+After=network.target ryod.service
+
+[Service]
+User=ryoservices
+Group=ryoservices
+WorkingDirectory=/opt/ryo-wallets
+Type=simple
+ExecStart=/opt/ryo-bin/ryo-wallet-rpc --wallet-file /opt/ryo-wallets/woocommerce --rpc-bind-port 12215 --password-file /opt/ryo-wallets/woocommerce.password --disable-rpc-login --log-file /var/log/ryo-wallet.log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

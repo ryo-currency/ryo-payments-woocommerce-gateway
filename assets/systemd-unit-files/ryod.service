@@ -1,0 +1,14 @@
+[Unit]
+Description=Ryo Full Node
+After=network.target
+
+[Service]
+User=ryoservices
+Group=ryoservices
+WorkingDirectory=/opt/ryo-data-dir
+Type=simple
+LimitNOFILE=65535
+ExecStart=/usr/bin/ryod --log-file /var/log/ryod.log --data-dir /opt/ryo-data-dir --non-interactive
+Restart=always
+[Install]
+WantedBy=multi-user.target
