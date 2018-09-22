@@ -232,7 +232,7 @@ class Ryo_Gateway extends WC_Payment_Gateway
 
     /*
      * function for verifying payments
-     * This cron runs every 30 seconds
+     * This cron runs every 60 seconds
      */
     public static function do_update_event()
     {

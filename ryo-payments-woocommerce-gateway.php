@@ -18,7 +18,7 @@ define('RYO_GATEWAY_TESTNET_EXPLORER_URL', 'https://tnexp.ryo-currency.com');
 define('RYO_GATEWAY_ADDRESS_PREFIX', 0x2ce192);            // RYoL
 define('RYO_GATEWAY_ADDRESS_PREFIX_INTEGRATED', 0x2de192); // RYoN
 define('RYO_GATEWAY_ATOMIC_UNITS', 9);
-define('RYO_GATEWAY_ATOMIC_UNIT_THRESHOLD', 10); // Amount under in atomic units payment is valid
+define('RYO_GATEWAY_ATOMIC_UNIT_THRESHOLD', 10); // Amount payment can be under in atomic units and still be valid
 define('RYO_GATEWAY_DIFFICULTY_TARGET', 240);
 
 // Do not edit these constants
@@ -130,7 +130,7 @@ function ryo_init() {
 
         // These filters will replace the live rate with the exchange rate locked in for the order
         // We must be careful to hit all the hooks for price displays associated with an order,
-        // else the exchange rate can change dynamically (which it should for an order)
+        // else the exchange rate can change dynamically (which it should not for an order)
         add_filter('woocommerce_order_formatted_line_subtotal', 'ryo_order_item_price_format', 10, 3);
         function ryo_order_item_price_format($price_html, $item, $order) {
             return Ryo_Gateway::convert_wc_price_order($price_html, $order);
