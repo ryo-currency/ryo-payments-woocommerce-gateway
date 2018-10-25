@@ -42,7 +42,7 @@ class Ryo_Gateway extends WC_Payment_Gateway
 
     public function get_icon()
     {
-        return apply_filters('woocommerce_gateway_icon', '<img src="'.RYO_GATEWAY_PLUGIN_URL.'assets/images/ryo-icon.png"/>');
+        return apply_filters('woocommerce_gateway_icon', '<img src="'.RYO_GATEWAY_PLUGIN_URL.'assets/images/ryo-icon.png"/>', $this->id);
     }
 
     function __construct($add_action=true)
