@@ -240,7 +240,7 @@ class Ryo_Gateway extends WC_Payment_Gateway
 
         // Get Live Price
         $currencies = implode(',', self::$currencies);
-        $api_link = 'https://min-api.cryptocompare.com/data/price?fsym=RYO&tsyms='.$currencies.'&extraParams=ryo_woocommerce';
+        $api_link = 'https://min-api.cryptocompare.com/data/price?fsym=RYOCURRENCY&tsyms='.$currencies.'&extraParams=ryo_woocommerce';
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
